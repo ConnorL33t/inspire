@@ -4,10 +4,12 @@ function QuoteService(){
 	var apiUrl = url + encodeURIComponent(url2);
 	//Do Not Edit above we have to go through the bcw-getter to access this api
 	
+
+
+
 	this.getQuote =  function(callWhenDone){
 		$.get(apiUrl, function(res){
-			console.log('Quote Data:', res)
-			//Now What?
+			callWhenDone(JSON.parse(res))
 		})
 	}
 }

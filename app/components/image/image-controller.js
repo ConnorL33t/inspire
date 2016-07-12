@@ -1,5 +1,13 @@
 (function(){
+	var imageService = new ImageService();
+
+
+	imageService.getImage(function(image){
+	$('#body').css('background-image', `url(${image.large_url}`);
+	$('#body').css(`background-size`, 'cover' )
+
+	})
 	
-	//Your ImageService is a global constructor function what can you do here if you new it up?
-	
+
+
 }())
