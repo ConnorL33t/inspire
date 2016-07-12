@@ -1,6 +1,9 @@
 function WeatherService(){
 	
 	this.getWeather =  function(callWhenDone){
+		var url = '//bcw-getter.herokuapp.com/?url='
+		var url2 = '//api.openweathermap.org/data/2.5/weather?q=boise&&APPID=bd82255fd0a21fa1238699b9eda2ee35'
+		var urlApi = url + encodeURIComponent(url2)
 		var w = localStorage.getItem('weather');
 		if(w){
 			w = JSON.parse(w);
@@ -8,7 +11,7 @@ function WeatherService(){
 		return 	callWhenDone(w)
 		}
 		
-		$.get('http://api.openweathermap.org/data/2.5/weather?q=boise&&APPID=bd82255fd0a21fa1238699b9eda2ee35', function(res){
+		$.get(apiUrl, function(res){
 			localStorage.setItem('weather', JSON.stringify(res))
 			callWhenDone(res);
 		})
